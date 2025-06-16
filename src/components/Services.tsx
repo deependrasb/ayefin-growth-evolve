@@ -1,8 +1,8 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, CreditCard, Home, Briefcase, TrendingUp, Shield, Coins } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Services = () => {
   const services = [
@@ -13,7 +13,8 @@ const Services = () => {
       features: ["Instant approval", "Flexible tenure", "Competitive rates"],
       rate: "10.5% p.a. onwards",
       amount: "Up to ₹25 Lakh",
-      color: "bg-blue-500"
+      color: "bg-blue-500",
+      link: "/personal-loans"
     },
     {
       icon: Home,
@@ -22,7 +23,8 @@ const Services = () => {
       features: ["Zero processing fee", "Quick disbursal", "Tax benefits"],
       rate: "8.3% p.a. onwards",
       amount: "Up to ₹5 Crore",
-      color: "bg-green-500"
+      color: "bg-green-500",
+      link: "/home-loans"
     },
     {
       icon: Briefcase,
@@ -31,25 +33,28 @@ const Services = () => {
       features: ["Collateral-free", "Quick approval", "Flexible repayment"],
       rate: "12% p.a. onwards",
       amount: "Up to ₹75 Lakh",
-      color: "bg-purple-500"
+      color: "bg-purple-500",
+      link: "/business-loans"
     },
     {
       icon: TrendingUp,
-      title: "Investment Advisory",
+      title: "Investment Products",
       description: "Expert guidance to help you build wealth and achieve financial goals",
-      features: ["Portfolio management", "Risk assessment", "Goal planning"],
-      rate: "Returns up to 15%",
-      amount: "No minimum limit",
-      color: "bg-orange-500"
+      features: ["Portfolio management", "SIP investments", "Goal planning"],
+      rate: "Returns up to 20%",
+      amount: "Start from ₹500/month",
+      color: "bg-orange-500",
+      link: "/investment-products"
     },
     {
       icon: Shield,
       title: "Insurance Solutions",
       description: "Comprehensive protection for you and your family's future",
-      features: ["Life insurance", "Health coverage", "Term plans"],
+      features: ["Life insurance", "Health coverage", "General insurance"],
       rate: "Premiums from ₹500/month",
-      amount: "Coverage up to ₹1 Crore",
-      color: "bg-red-500"
+      amount: "Coverage up to ₹10 Crore",
+      color: "bg-red-500",
+      link: "/insurance"
     },
     {
       icon: Coins,
@@ -57,8 +62,9 @@ const Services = () => {
       description: "Instant loans against your gold jewelry with attractive interest rates",
       features: ["Instant approval", "Minimal documentation", "Safe custody"],
       rate: "9.5% p.a. onwards",
-      amount: "Up to 75% of gold value",
-      color: "bg-yellow-500"
+      amount: "Up to 85% of gold value",
+      color: "bg-yellow-500",
+      link: "/gold-loans"
     }
   ];
 
@@ -116,10 +122,12 @@ const Services = () => {
                     </div>
                   </div>
 
-                  <Button className="w-full group bg-finance-blue hover:bg-finance-blue-dark">
-                    Apply Now
-                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
+                  <Link to={service.link}>
+                    <Button className="w-full group bg-finance-blue hover:bg-finance-blue-dark">
+                      Learn More
+                      <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
                 </CardContent>
               </Card>
             );

@@ -7,6 +7,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import BusinessLoans from "./pages/BusinessLoans";
 import PersonalLoans from "./pages/PersonalLoans";
+import HomeLoans from "./pages/HomeLoans";
+import InvestmentProducts from "./pages/InvestmentProducts";
+import Insurance from "./pages/Insurance";
+import GoldLoans from "./pages/GoldLoans";
 import InvestorRelations from "./pages/InvestorRelations";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
@@ -23,6 +27,10 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/business-loans" element={<BusinessLoans />} />
           <Route path="/personal-loans" element={<PersonalLoans />} />
+          <Route path="/home-loans" element={<HomeLoans />} />
+          <Route path="/investment-products" element={<InvestmentProducts />} />
+          <Route path="/insurance" element={<Insurance />} />
+          <Route path="/gold-loans" element={<GoldLoans />} />
           <Route path="/investor-relations" element={<InvestorRelations />} />
           <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
