@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, ArrowRight, Phone, Mail, Users, TrendingUp, Building } from "lucide-react";
+import { Menu, ArrowRight, Phone, Mail, Users, TrendingUp, Building, User, Award } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const Header = () => {
@@ -13,7 +13,7 @@ const Header = () => {
     { title: "Business Loans", href: "/business-loans", description: "Flexible funding solutions for your business growth", icon: <Building className="w-5 h-5" /> },
     { title: "Personal Loans", href: "/personal-loans", description: "Quick and easy personal financing options", icon: <Users className="w-5 h-5" /> },
     { title: "Home Loans", href: "/home-loans", description: "Competitive rates for your dream home", icon: <Building className="w-5 h-5" /> },
-    { title: "Investment Products", href: "/investments", description: "Wealth building and investment solutions", icon: <TrendingUp className="w-5 h-5" /> },
+    { title: "Investment Products", href: "/investment-products", description: "Wealth building and investment solutions", icon: <TrendingUp className="w-5 h-5" /> },
     { title: "Insurance", href: "/insurance", description: "Comprehensive protection plans", icon: <Users className="w-5 h-5" /> },
     { title: "Gold Loans", href: "/gold-loans", description: "Instant loans against gold jewelry", icon: <TrendingUp className="w-5 h-5" /> },
   ];
@@ -23,6 +23,13 @@ const Header = () => {
     { title: "Tax Planning", href: "/tax-planning", description: "Strategic tax optimization services" },
     { title: "Wealth Management", href: "/wealth-management", description: "Comprehensive wealth building strategies" },
     { title: "Credit Counseling", href: "/credit-counseling", description: "Improve your credit score and financial health" },
+  ];
+
+  const companyItems = [
+    { title: "From The MD's Desk", href: "/md-desk", description: "Message from our Managing Director", icon: <User className="w-5 h-5" /> },
+    { title: "Our Team", href: "/our-team", description: "Meet our experienced leadership team", icon: <Users className="w-5 h-5" /> },
+    { title: "Our Investors", href: "/our-investors", description: "Trusted partners and stakeholders", icon: <TrendingUp className="w-5 h-5" /> },
+    { title: "Accolades", href: "/accolades", description: "Awards and recognition received", icon: <Award className="w-5 h-5" /> },
   ];
 
   const investorItems = [
@@ -117,6 +124,40 @@ const Header = () => {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
+                  <NavigationMenuTrigger className="text-base font-medium">Our Company</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid gap-3 p-6 w-[550px] grid-cols-1">
+                      <div className="mb-4">
+                        <h3 className="text-lg font-semibold text-finance-blue mb-2">About Ayefin</h3>
+                        <p className="text-sm text-muted-foreground mb-4">
+                          Learn more about our leadership, team, and achievements
+                        </p>
+                      </div>
+                      {companyItems.map((item) => (
+                        <NavigationMenuLink
+                          key={item.title}
+                          href={item.href}
+                          className={cn(
+                            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground group"
+                          )}
+                        >
+                          <div className="text-sm font-medium leading-none flex items-center justify-between">
+                            <div className="flex items-center space-x-2">
+                              {item.icon}
+                              <span>{item.title}</span>
+                            </div>
+                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                          </div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            {item.description}
+                          </p>
+                        </NavigationMenuLink>
+                      ))}
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+
+                <NavigationMenuItem>
                   <NavigationMenuTrigger className="text-base font-medium">Investors</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div className="grid gap-3 p-6 w-[550px] grid-cols-1">
@@ -201,6 +242,17 @@ const Header = () => {
                         {services.map((service) => (
                           <a key={service.title} href={service.href} className="block text-sm text-gray-600 hover:text-finance-blue">
                             {service.title}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div>
+                      <h3 className="font-semibold mb-2">Our Company</h3>
+                      <div className="space-y-2 ml-4">
+                        {companyItems.map((item) => (
+                          <a key={item.title} href={item.href} className="block text-sm text-gray-600 hover:text-finance-blue">
+                            {item.title}
                           </a>
                         ))}
                       </div>
