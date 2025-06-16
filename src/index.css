@@ -45,6 +45,15 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Custom finance colors for professional appearance */
+    --finance-blue: 221 83% 53%;
+    --finance-blue-light: 221 83% 65%;
+    --finance-blue-dark: 221 83% 40%;
+    --finance-green: 142 76% 36%;
+    --finance-green-light: 142 76% 48%;
+    --finance-gold: 43 96% 56%;
+    --finance-gray: 220 13% 91%;
   }
 
   .dark {
@@ -93,10 +102,13 @@
 
   body {
     @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: -0.025em;
   }
 }
 
@@ -115,5 +127,43 @@
 
   .section-padding {
     @apply py-20 px-4 md:px-8 lg:px-12;
+  }
+
+  /* Professional gradient backgrounds */
+  .bg-finance-gradient {
+    background: linear-gradient(135deg, hsl(var(--finance-blue)) 0%, hsl(var(--finance-green)) 100%);
+  }
+
+  .bg-hero-gradient {
+    background: linear-gradient(135deg, hsl(var(--finance-blue-dark)) 0%, hsl(var(--finance-blue)) 40%, hsl(var(--finance-green)) 100%);
+  }
+
+  /* Animation for floating elements */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-10px) rotate(1deg); }
+    66% { transform: translateY(5px) rotate(-1deg); }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Professional color utilities */
+  .text-finance-blue { color: hsl(var(--finance-blue)); }
+  .text-finance-green { color: hsl(var(--finance-green)); }
+  .text-finance-gold { color: hsl(var(--finance-gold)); }
+  .bg-finance-blue { background-color: hsl(var(--finance-blue)); }
+  .bg-finance-green { background-color: hsl(var(--finance-green)); }
+  .bg-finance-gold { background-color: hsl(var(--finance-gold)); }
+  .border-finance-blue { border-color: hsl(var(--finance-blue)); }
+
+  /* Investor-focused design enhancements */
+  .investor-card {
+    @apply bg-white/90 backdrop-blur-sm border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-300;
+  }
+
+  .metric-highlight {
+    @apply text-4xl font-bold bg-gradient-to-r from-finance-blue to-finance-green bg-clip-text text-transparent;
   }
 }
