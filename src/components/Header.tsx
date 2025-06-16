@@ -3,19 +3,19 @@ import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, ArrowRight, Phone, Mail } from "lucide-react";
+import { Menu, ArrowRight, Phone, Mail, Users, TrendingUp, Building } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const products = [
-    { title: "Business Loans", href: "/business-loans", description: "Flexible funding solutions for your business growth" },
-    { title: "Personal Loans", href: "/personal-loans", description: "Quick and easy personal financing options" },
-    { title: "Home Loans", href: "/home-loans", description: "Competitive rates for your dream home" },
-    { title: "Investment Products", href: "/investments", description: "Wealth building and investment solutions" },
-    { title: "Insurance", href: "/insurance", description: "Comprehensive protection plans" },
-    { title: "Gold Loans", href: "/gold-loans", description: "Instant loans against gold jewelry" },
+    { title: "Business Loans", href: "/business-loans", description: "Flexible funding solutions for your business growth", icon: <Building className="w-5 h-5" /> },
+    { title: "Personal Loans", href: "/personal-loans", description: "Quick and easy personal financing options", icon: <Users className="w-5 h-5" /> },
+    { title: "Home Loans", href: "/home-loans", description: "Competitive rates for your dream home", icon: <Building className="w-5 h-5" /> },
+    { title: "Investment Products", href: "/investments", description: "Wealth building and investment solutions", icon: <TrendingUp className="w-5 h-5" /> },
+    { title: "Insurance", href: "/insurance", description: "Comprehensive protection plans", icon: <Users className="w-5 h-5" /> },
+    { title: "Gold Loans", href: "/gold-loans", description: "Instant loans against gold jewelry", icon: <TrendingUp className="w-5 h-5" /> },
   ];
 
   const services = [
@@ -23,6 +23,13 @@ const Header = () => {
     { title: "Tax Planning", href: "/tax-planning", description: "Strategic tax optimization services" },
     { title: "Wealth Management", href: "/wealth-management", description: "Comprehensive wealth building strategies" },
     { title: "Credit Counseling", href: "/credit-counseling", description: "Improve your credit score and financial health" },
+  ];
+
+  const investorItems = [
+    { title: "Financial Reports", href: "/investor-relations", description: "Annual reports and quarterly results" },
+    { title: "Presentations", href: "/investor-relations", description: "Investor presentations and meeting materials" },
+    { title: "Announcements", href: "/investor-relations", description: "Corporate announcements and disclosures" },
+    { title: "Governance", href: "/investor-relations", description: "Board information and corporate policies" },
   ];
 
   return (
@@ -59,7 +66,7 @@ const Header = () => {
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className="text-base font-medium">Products</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="grid gap-3 p-6 w-[600px] grid-cols-2">
+                    <div className="grid gap-3 p-6 w-[650px] grid-cols-2">
                       {products.map((product) => (
                         <NavigationMenuLink
                           key={product.title}
@@ -69,7 +76,10 @@ const Header = () => {
                           )}
                         >
                           <div className="text-sm font-medium leading-none flex items-center justify-between">
-                            {product.title}
+                            <div className="flex items-center space-x-2">
+                              {product.icon}
+                              <span>{product.title}</span>
+                            </div>
                             <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
                           </div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
@@ -99,6 +109,37 @@ const Header = () => {
                           </div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                             {service.description}
+                          </p>
+                        </NavigationMenuLink>
+                      ))}
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="text-base font-medium">Investors</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid gap-3 p-6 w-[550px] grid-cols-1">
+                      <div className="mb-4">
+                        <h3 className="text-lg font-semibold text-finance-blue mb-2">Investor Relations</h3>
+                        <p className="text-sm text-muted-foreground mb-4">
+                          Comprehensive information for our investors and stakeholders
+                        </p>
+                      </div>
+                      {investorItems.map((item) => (
+                        <NavigationMenuLink
+                          key={item.title}
+                          href={item.href}
+                          className={cn(
+                            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground group"
+                          )}
+                        >
+                          <div className="text-sm font-medium leading-none flex items-center justify-between">
+                            {item.title}
+                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                          </div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            {item.description}
                           </p>
                         </NavigationMenuLink>
                       ))}
@@ -163,6 +204,23 @@ const Header = () => {
                           </a>
                         ))}
                       </div>
+                    </div>
+
+                    <div>
+                      <h3 className="font-semibold mb-2">Investors</h3>
+                      <div className="space-y-2 ml-4">
+                        <a href="/investor-relations" className="block text-sm text-gray-600 hover:text-finance-blue">
+                          Investor Relations
+                        </a>
+                      </div>
+                    </div>
+
+                    <div>
+                      <a href="/about" className="font-semibold hover:text-finance-blue">About Us</a>
+                    </div>
+
+                    <div>
+                      <a href="/contact" className="font-semibold hover:text-finance-blue">Contact</a>
                     </div>
                   </div>
 
