@@ -13,10 +13,12 @@ import Insurance from "./pages/Insurance";
 import GoldLoans from "./pages/GoldLoans";
 import InvestorRelations from "./pages/InvestorRelations";
 import About from "./pages/About";
+import AboutCompany from "./pages/AboutCompany";
 import MdDesk from "./pages/MdDesk";
 import OurTeam from "./pages/OurTeam";
 import OurInvestors from "./pages/OurInvestors";
 import Accolades from "./pages/Accolades";
+import Insight from "./pages/Insight";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -37,10 +39,12 @@ const App = () => (
           <Route path="/gold-loans" element={<GoldLoans />} />
           <Route path="/investor-relations" element={<InvestorRelations />} />
           <Route path="/about" element={<About />} />
+          <Route path="/about-company" element={<AboutCompany />} />
           <Route path="/md-desk" element={<MdDesk />} />
           <Route path="/our-team" element={<OurTeam />} />
           <Route path="/our-investors" element={<OurInvestors />} />
           <Route path="/accolades" element={<Accolades />} />
+          <Route path="/insight" element={<Insight />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

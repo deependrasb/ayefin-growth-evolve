@@ -1,9 +1,8 @@
-
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, ArrowRight, Phone, Mail, Users, TrendingUp, Building, User, Award } from "lucide-react";
+import { Menu, ArrowRight, Phone, Mail, Users, TrendingUp, Building, User, Award, BookOpen } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const Header = () => {
@@ -27,9 +26,11 @@ const Header = () => {
 
   const companyItems = [
     { title: "From The MD's Desk", href: "/md-desk", description: "Message from our Managing Director", icon: <User className="w-5 h-5" /> },
+    { title: "About Company", href: "/about-company", description: "Learn about our journey and values", icon: <Building className="w-5 h-5" /> },
     { title: "Our Team", href: "/our-team", description: "Meet our experienced leadership team", icon: <Users className="w-5 h-5" /> },
     { title: "Our Investors", href: "/our-investors", description: "Trusted partners and stakeholders", icon: <TrendingUp className="w-5 h-5" /> },
     { title: "Accolades", href: "/accolades", description: "Awards and recognition received", icon: <Award className="w-5 h-5" /> },
+    { title: "Insight", href: "/insight", description: "Careers and social impact initiatives", icon: <BookOpen className="w-5 h-5" /> },
   ];
 
   const investorItems = [
