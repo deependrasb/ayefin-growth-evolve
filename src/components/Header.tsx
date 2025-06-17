@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
@@ -25,8 +26,8 @@ const Header = () => {
   ];
 
   const companyItems = [
-    { title: "From The MD's Desk", href: "/md-desk", description: "Message from our Managing Director", icon: <User className="w-5 h-5" /> },
     { title: "About Company", href: "/about-company", description: "Learn about our journey and values", icon: <Building className="w-5 h-5" /> },
+    { title: "From The MD's Desk", href: "/md-desk", description: "Message from our Managing Director", icon: <User className="w-5 h-5" /> },
     { title: "Our Team", href: "/our-team", description: "Meet our experienced leadership team", icon: <Users className="w-5 h-5" /> },
     { title: "Our Investors", href: "/our-investors", description: "Trusted partners and stakeholders", icon: <TrendingUp className="w-5 h-5" /> },
     { title: "Accolades", href: "/accolades", description: "Awards and recognition received", icon: <Award className="w-5 h-5" /> },
@@ -190,12 +191,6 @@ const Header = () => {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <NavigationMenuLink href="/about" className="text-base font-medium px-4 py-2 hover:text-finance-blue transition-colors">
-                    About Us
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-
-                <NavigationMenuItem>
                   <NavigationMenuLink href="/contact" className="text-base font-medium px-4 py-2 hover:text-finance-blue transition-colors">
                     Contact
                   </NavigationMenuLink>
@@ -266,10 +261,6 @@ const Header = () => {
                           Investor Relations
                         </a>
                       </div>
-                    </div>
-
-                    <div>
-                      <a href="/about" className="font-semibold hover:text-finance-blue">About Us</a>
                     </div>
 
                     <div>

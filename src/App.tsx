@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Index from "./pages/Index";
 import BusinessLoans from "./pages/BusinessLoans";
 import PersonalLoans from "./pages/PersonalLoans";
@@ -12,7 +12,6 @@ import InvestmentProducts from "./pages/InvestmentProducts";
 import Insurance from "./pages/Insurance";
 import GoldLoans from "./pages/GoldLoans";
 import InvestorRelations from "./pages/InvestorRelations";
-import About from "./pages/About";
 import AboutCompany from "./pages/AboutCompany";
 import MdDesk from "./pages/MdDesk";
 import OurTeam from "./pages/OurTeam";
@@ -38,7 +37,7 @@ const App = () => (
           <Route path="/insurance" element={<Insurance />} />
           <Route path="/gold-loans" element={<GoldLoans />} />
           <Route path="/investor-relations" element={<InvestorRelations />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/about" element={<Navigate to="/about-company" replace />} />
           <Route path="/about-company" element={<AboutCompany />} />
           <Route path="/md-desk" element={<MdDesk />} />
           <Route path="/our-team" element={<OurTeam />} />
