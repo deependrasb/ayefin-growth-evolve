@@ -1,4 +1,5 @@
 
+import React from "react";
 import { Building, User, Users, TrendingUp, Award, BookOpen } from "lucide-react";
 
 export const products = [
